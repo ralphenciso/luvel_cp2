@@ -1,0 +1,62 @@
+.input-group *{
+    font-size: 1.2rem;
+
+}
+
+.input-group label{
+    min-width: 125px;
+    display: flex;
+    justify-content: center;
+}
+
+.input-group input:invalid{
+    border:2px solid red;
+}
+
+.textarea{
+    height: 140px;
+}
+
+body{
+    background: linear-gradient(#da5b5b60,#ad7a1f60), url("/images/gold.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.input-group label{
+    background-color:#6b0000;
+    color: snow;
+}
+
+
+.xicon{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    color: #ff0000cc;
+    display: none;
+}
+
+
+.xicon i{
+    font-size: 4rem
+}
+.galcbox:checked ~ label {
+    border: 3px solid red;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.galcbox:checked ~ label .xicon{
+    display: block;
+}
+
+.galcbox:checked ~ label .overlay{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    background: #00000060;
+}

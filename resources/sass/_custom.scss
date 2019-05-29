@@ -1,0 +1,275 @@
+body, * {
+    font-family: 'Raleway', 'Quicksand', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.filters{
+    max-width: 170px;
+    background: #00000090;
+    z-index: 100;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .filters {
+        width: calc(540px/4)
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .filters {
+        width: calc(720px/6)
+    }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .filters {
+        width: calc(960px/6)
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+        .filters {
+            width: calc(1140px/6)
+        }
+ }
+
+
+.navwelcome{
+    box-shadow: 0 0 10px rgba(145,112,59,1);
+    background: #00000060;
+}
+
+
+
+.logotext{
+    font-family: 'Petit Formal Script', cursive;
+    font-size: 30px;
+    // font-weight: bold;
+    // background-image: linear-gradient(to top, #ea981c, #f1bd28);
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    color:	gold !important;
+}
+
+.navwelcome .nav-link {
+    color: gold !important;
+}
+
+.navwelcome .nav-link:hover, .navwelcome .nav-link:focus {
+    color: #ffd700e0 !important;
+}
+
+.welcome{
+    height: 100vh;
+    background:#00000020;
+    overflow: hidden;
+}
+
+.welcomebody .carousel{
+    z-index: -1;
+}
+
+
+
+.welcomebody .carousel-item img{
+    min-height: 100vh !important;
+    min-width: 100% !important;
+    position: fixed;
+    bottom:0;
+}
+
+.welcomecaption{
+    font-family: 'Montez', cursive;
+    position: fixed;
+    top:45%;
+    left:50%;
+    color: snow;
+    font-size: 4rem;
+    background: #00000090;
+    border-radius: 4px;
+    padding: 20px;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+
+.bgtrans{
+    background: transparent;
+}
+
+
+.logreg {
+    font-family: 'Quicksand', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.3rem;
+    color: gold !important;
+}
+
+
+.regbody{
+    background-image: url("/images/bokeh1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.regform {
+    background: #ffe3e3ba;
+    color: #000000;
+    font-size: 1.2rem;
+}
+
+.script{
+    font-family: 'Petit Formal Script', cursive
+}
+
+
+.navbar .nav-link {
+    font-size: 1.2rem;
+    font-family: 'Petit Formal Script';
+    color: #ffc679 !important;
+}
+
+.navbar .nav-link:hover {
+    color:gold !important;
+}
+
+.homebody {
+    background-image: linear-gradient(185deg, #000000aa 0%, #b82e1faa 74%),url("/images/bokeh2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.homenav {
+    background-image: linear-gradient(165deg, #000000 0%, #b82e1f 74%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.servicesnav {
+    background-image: linear-gradient(165deg, #000000 0%, #b82e1f 74%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.servicesbody {
+    background-image: linear-gradient(90deg, #FF9A8B60, #FF6A8860),url('/images/gold.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.servicesbody .card-img {
+    width:auto;
+    height: 170px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.servicesbody .card {
+    background: #fce3bbe0;
+    color: #7b0c0c;
+}
+
+
+.servicesbody .card .btn {
+    font-size: 1.2rem;
+    font-family: 'Raleway';
+}
+
+.servicesbody .filters .card, .requestsbody .filters .card, .vhshowclass .filters .card {
+    background: transparent;
+    color: snow;
+    font-size: 1.3rem;
+    font-family: 'Montserrat';
+    border-color:snow;
+}
+
+.vhshowclass .itemdesc {
+    background: #ee9b3f;
+    color: snow;
+}
+
+.vhshowclass {
+    background: linear-gradient(to bottom, #e1eec3,#f05053);
+}
+
+.servicesbody #durationinput  td, .requestsbody #durationinput  td, .vhshowclass #durationinput  td{
+    border-radius: 2px;
+    box-shadow: none;
+    border: 1px solid lightgrey;
+}
+
+.servicesbody #durationinput  input, .requestsbody #durationinput  input, .vhshowclass #durationinput  input{
+    text-align: center;
+    width: 100%;
+    border: none;
+}
+
+.servicesbody #durationinput  label, .requestsbody #durationinput  label, .vhshowclass #durationinput  label{
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid lightgrey;
+    color:black;
+}
+
+.servicesbody #durationinput *, .requestsbody #durationinput *, .vhshowclass #durationinput * {
+    margin:0;
+}
+
+
+.servicesbody #durationinput, .requestsbody #durationinput, .vhshowclass #durationinput {
+    width:100%;
+    border-collapse: collapse;
+}
+
+.servicesbody .modal input:invalid, .requestsbody .modal input:invalid, .vhshowclass .modal input:invalid{
+    border: 2px solid red !important;
+}
+
+.requestsnav {
+    background-image: linear-gradient(165deg, #000000 0%, #b82e1f 74%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.requestsbody {
+    background: linear-gradient(to right, #ff7e5f90, #feb47b90), url('/images/alum.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.requestsbody .requestlist .card {
+    background: linear-gradient(to right, #bdc3c7aa, #2c3e50aa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.requestlist .input-group label {
+    background: #635a4f;
+    color:snow
+}
+
+.dropzone {
+    height: 250px;
+    border: 2px dashed #9e2929;
+    line-height: 250px;
+    text-align: center;
+    background: #a09a9a;
+    color: snow;
+    font-size: 3rem;
+    border-radius: 10px;
+}
+
+.dropzone.dragover{
+    border-color: #9e292960;
+    background: #a09a9a60;
+}
