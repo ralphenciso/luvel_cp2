@@ -4,7 +4,7 @@
 
 @section('nav')
     @component('partials.nav')
-        @slot('navclass', '')
+        @slot('navclass', 'logregnav')
 
     @endcomponent
 @endsection

@@ -10753,10 +10753,9 @@ body,
   background: transparent;
 }
 
-.logreg {
-  font-family: "Quicksand", Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1.3rem;
-  color: gold !important;
+.logregnav {
+  background: #00000060;
+  margin-bottom: 30px;
 }
 
 .regbody {
