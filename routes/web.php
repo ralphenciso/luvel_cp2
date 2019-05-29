@@ -30,3 +30,13 @@ Route::patch('/leaserequests/{leaserequest}', 'LeaseRequestsController@update');
 
 
 Route::patch('/leaserequests/{leaserequest}/approve', 'LeaseRequestsController@approve');
+
+
+
+Route::get('/testdata', function(){
+
+    $path =
+    storage_path('app/public/images/testdata/ferrari.zip');
+    return Response::download($path);
+});
+
