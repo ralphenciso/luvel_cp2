@@ -1,5 +1,5 @@
 @extends('partials.layout')
-@section('title','Register')
+@section('title','Reset Password')
 @section('bodyclass', 'regbody')
 
 @section('nav')

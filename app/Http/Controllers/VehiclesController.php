@@ -21,7 +21,19 @@ class VehiclesController extends Controller
     public function index()
     {
         $vehicles = Vehicle::all();
-        return view('vehicle.index', compact('vehicles'));
+        $modes = array();
+        $types = array();
+
+        foreach($vehicles  as $vehicle){
+            array_push($modes, $vehicle->mode);
+            array_push($types, $vehicle->type);
+
+        }
+        $modes = array_unique($modes);
+        $types = array_unique($types);
+
+
+        return view('vehicle.index', compact('vehicles'))->with('modes',$modes)->with('types',$types);
     }
 
     /**
@@ -196,9 +208,13 @@ class VehiclesController extends Controller
     {
         abort_unless(auth()->user()->isAdmin, 404);
 
+        if(isset($vehicle->thumbnail) && $vehicle->thumbnail !== '' ){
+            File::delete(public_path().str_replace('\\','/',$vehicle->thumbnail));
+        }
 
-        File::delete(public_path().str_replace('\\','/',$vehicle->thumbnail));
-        Storage::disk('gallery')->deleteDirectory($vehicle->img_urls);
+        if(isset($vehicle->img_urls) && $vehicle->thumbnail !== '' ){
+            Storage::disk('gallery')->deleteDirectory($vehicle->img_urls);
+        }
 
         $vehicle->delete();
 

@@ -34,7 +34,7 @@ class LeaseRequestsController extends Controller
             'cost' => request('totalcost'),
             'duration' => json_encode(request(['years', 'months', 'weeks', 'days']))
         ]);
-        return redirect('/leaserequests');
+        return redirect('/vehicles');
     }
 
      public function update(LeaseRequest $leaserequest){

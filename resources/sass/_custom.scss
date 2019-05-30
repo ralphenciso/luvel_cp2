@@ -3,37 +3,19 @@ body, * {
 }
 
 .filters{
-    max-width: 170px;
+    max-width: 15%;
     background: #00000090;
     z-index: 100;
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-    .filters {
-        width: calc(540px/4)
-    }
-}
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
     .filters {
-        width: calc(720px/6)
-    }
-}
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-    .filters {
-        width: calc(960px/6)
+        max-width: calc(25% - 30px);
     }
 }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-        .filters {
-            width: calc(1140px/6)
-        }
- }
 
 
 .navwelcome{
@@ -249,12 +231,18 @@ body, * {
 
 .requestsbody .requestlist .card {
     background: linear-gradient(to right, #bdc3c7aa, #2c3e50aa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 
 .requestlist .input-group label {
     background: #635a4f;
     color:snow
+}
+
+.requestlist .card-img{
+    width: auto;
+    height: 185px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .dropzone {
@@ -271,4 +259,53 @@ body, * {
 .dropzone.dragover{
     border-color: #9e292960;
     background: #a09a9a60;
+}
+
+
+
+#remember:checked ~ .remember::before {
+    content: '🗸️';
+}
+
+.remember::before {
+    content: '\00a0\00a0';
+    line-height: 16px;
+    width: 16px;
+    background: transparent;
+    border: 1px solid #2d2828;
+    border-radius: 3px;
+    font-size: 1.2rem;
+    display: inline-flex;
+    color: #6600ff;
+    justify-content: center;
+    align-items: center;
+}
+
+.filesforupload{
+    flex: 0 1 auto;
+    border: 1px solid grey;
+    border-radius: 4px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 4px;
+    background: #7b0c0c;
+    color: snow;
+}
+
+.filesforupload i{
+    color:#e40b0b;
+    margin-left: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+
+}
+
+.filesforupload:hover {
+    background: #00000060;
+}
+
+#uploadlist{
+    background: transparent;
+    border: none;
 }

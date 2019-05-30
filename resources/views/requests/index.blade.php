@@ -40,7 +40,7 @@
             <ul class="row requestlist">
                 @foreach ($requests as $request)
                 <li class="card col-12 my-1 p-2" data-status="{{$request->status}}">
-                    <div class="row no-gutters">
+                    <div class="row no-gutters h-100">
                         <div class="col-4 p-1 d-flex flex-column justify-content-between">
                             <img src="{{$request->vehicle->thumbnail}}" class="card-img">
                         </div>
