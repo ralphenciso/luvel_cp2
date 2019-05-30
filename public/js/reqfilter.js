@@ -1,21 +1,38 @@
 let requests = document.querySelectorAll('[data-status]')
-let filters = document.querySelectorAll('#reqfilter label');
+let statfilter = document.querySelectorAll('#reqfilter label');
+let userfilter = document.querySelectorAll('#userfilter label');
+let status = 'all';
+let user = 'all';
 
-console.log(filters);
 
-filters.forEach(filter => {
-
+statfilter.forEach(filter => {
     filter.addEventListener('click', () => {
-        let status = filter.dataset.filter;
+        status = filter.dataset.filter;
+        applyfilter();
 
-
-        requests.forEach(request => {
-            if(status === 'all' || status === request.dataset.status){
-                request.classList.remove('d-none')
-            } else {
-                request.classList.add('d-none')
-            }
-        })
     })
-
 })
+
+userfilter.forEach(filter => {
+    filter.addEventListener('click', () => {
+        user = filter.dataset.filter;
+        console.log(user);
+        applyfilter();
+    });
+});
+
+
+function applyfilter() {
+    requests.forEach(request => {
+        if (
+            (status === 'all' || status === request.dataset.status) &&
+            (user === 'all' || user === request.dataset.userid)
+        ) {
+            request.classList.remove('d-none');
+        } else {
+            request.classList.add('d-none');
+        }
+
+        console.log(request.dataset.userid);
+    });
+}

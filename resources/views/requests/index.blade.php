@@ -13,33 +13,51 @@
 @section('content')
 <div class="container mt-3">
     <div class="row">
-        <div class='filters position-fixed p-2'>
-            <div class="card p-2">
-                <div class="" data-toggle="buttons" id="reqfilter">
-                    <label class="btn btn-outline-light btn-block active" data-filter="all">
-                        <input type="radio" name="reqfilter" id="requestsall" class="d-none">All
-                    </label>
-                    <label class="btn btn-outline-light btn-block" data-filter="for approval">
-                        <input type="radio" name="reqfilter" class="d-none">For Approval
-                    </label>
-                    <label class="btn btn-outline-light btn-block" data-filter="approved">
-                        <input type="radio" name="reqfilter" class="d-none">Approved
-                    </label>
-                </div>
+        <div class='col-3 col-md-2 p-2'>
+            <div class='reqfilter'>
+                <div class="card p-2">
+                    <div data-toggle="buttons" id="reqfilter">
+                        <label class="btn btn-outline-light btn-block active" data-filter="all">
+                            <input type="radio" name="reqfilter" id="requestsall" class="d-none">All
+                        </label>
+                        <label class="btn btn-outline-light btn-block" data-filter="for approval">
+                            <input type="radio" name="reqfilter" class="d-none">For Approval
+                        </label>
+                        <label class="btn btn-outline-light btn-block" data-filter="approved">
+                            <input type="radio" name="reqfilter" class="d-none">Approved
+                        </label>
+                    </div>
 
                     <a class="btn btn-dark btn-block" href="/vehicles">
                         New Request
                     </a>
+
+                </div>
+
+                @if (isset($users) && auth()->user()->isAdmin)
+                    <div class="card p-2 my-3" id='userfilter' data-toggle="buttons">
+                        <p class="text-center">Users</p>
+                        <label class="btn btn-outline-light btn-block active" data-filter="all">
+                            <input type="radio" name="userfilter" id="userall" class="d-none">All
+                        </label>
+
+                        @foreach ($users as $user)
+                            <label class="btn btn-outline-light btn-block" data-filter="{{$user->id}}" for="user{{$user->id}}">
+                                <input type="radio" name="userfilter" id="user{{$user->id}}" class="d-none">{{$user->username}}
+                            </label>
+                        @endforeach
+                    </div>
+                @endif
+
             </div>
-            <div class="col-3 col-md-2"></div>
         </div>
 
-        <div class="col-3 col-md-2"></div>
+        {{-- <div class="col-3 col-md-2"></div> --}}
 
         <div class="col-9 col-md-10">
             <ul class="row requestlist">
                 @foreach ($requests as $request)
-                <li class="card col-12 my-1 p-2" data-status="{{$request->status}}">
+            <li class="card col-12 my-1 p-2" data-status="{{$request->status}}" data-userid="{{$request->user_id}}">
                     <div class="row no-gutters h-100">
                         <div class="col-4 p-1 d-flex flex-column justify-content-between">
                             <img src="{{$request->vehicle->thumbnail}}" class="card-img">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\LeaseRequest;
+use App\User;
 
 class LeaseRequestsController extends Controller
 {
@@ -14,10 +15,12 @@ class LeaseRequestsController extends Controller
     public function index(){
         if(auth()->user()->isAdmin){
             $requests = LeaseRequest::all();
+            $users = User::all();
+            return view('requests.index', compact('requests'))->with(compact('users'));
         } else {
             $requests = LeaseRequest::where('user_id', '=', auth()->user()->id)->get();
+            return view('requests.index', compact('requests'));
         }
-        return view('requests.index', compact('requests'));
     }
 
 

@@ -10673,6 +10673,10 @@ body,
   z-index: 100;
 }
 
+.reqfilter {
+  background: #00000090;
+}
+
 @media (min-width: 768px) {
   .filters {
     max-width: calc(25% - 30px);
@@ -10815,7 +10819,7 @@ body,
 }
 
 .servicesbody .filters .card,
-.requestsbody .filters .card,
+.requestsbody .reqfilter .card,
 .vhshowclass .filters .card {
   background: transparent;
   color: snow;

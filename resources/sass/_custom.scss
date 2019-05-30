@@ -8,6 +8,10 @@ body, * {
     z-index: 100;
 }
 
+.reqfilter {
+    background: #00000090;
+}
+
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
@@ -165,7 +169,7 @@ body, * {
     font-family: 'Raleway';
 }
 
-.servicesbody .filters .card, .requestsbody .filters .card, .vhshowclass .filters .card {
+.servicesbody .filters .card, .requestsbody .reqfilter .card, .vhshowclass .filters .card {
     background: transparent;
     color: snow;
     font-size: 1.3rem;
