@@ -134,5 +134,94 @@ class VehiclesTableSeeder extends Seeder
             'thumbnail' => '/images/vehicles/porsche918.jpg',
             'img_urls' => 'spyder'
         ]);
+         DB::table('vehicles')->insert([
+            'model' => 'Desmosedici',
+            'make' => 'Ducati',
+            'description' => "Ducati Desmosedici is four-stroke V4 engine racing motorcycle made by Ducati for MotoGP
+            racing. The series nomenclature is GP with the two-digit year appended, such as Desmosedici GP9 for 2009. In
+            2006 Ducati made a short production run of 1,500 street-legal variants, the Desmosedici RR.",
+            'type' => 'motorbike',
+            'mode' => 'land',
+            'price' => 80000,
+            'thumbnail' => '/images/vehicles/desmosedici.jpg',
+            'img_urls' => 'desmosedici'
+         ]);
+        DB::table('vehicles')->insert([
+            'model' => 'S-76c++',
+            'make' => 'Sikorsky',
+            'description' => "The Sikorsky S-76 is an American medium-size commercial utility helicopter, manufactured
+            by the Sikorsky Aircraft Corporation. The S-76 features twin turboshaft engines, four-bladed main and tail
+            rotors and retractable landing gear. ",
+            'type' => 'helicopter',
+            'mode' => 'air',
+            'price' => 13000000,
+            'thumbnail' => '/images/vehicles/s76c.jpg',
+            'img_urls' => 'desmosedici'
+         ]);
+        DB::table('vehicles')->insert([
+            'model' => 'SEC135',
+            'make' => 'Eurocopter',
+            'description' => "The Eurocopter EC135 is a twin-engine civil light utility helicopter produced by Airbus
+            Helicopters. It is capable of flight under instrument flight rules and is outfitted with a digital automatic
+            flight control system.",
+            'type' => 'helicopter',
+            'mode' => 'air',
+            'price' => 7000000,
+            'thumbnail' => '/images/vehicles/eurocop.jpg',
+            'img_urls' => 'eurocop'
+         ]);
+         DB::table('vehicles')->insert([
+            'model' => '118 WallyPower',
+            'make' => 'Wally',
+            'description' => "118 WallyPower, christened Galeocerdo, is a 118-foot luxury motor yacht with a maximum
+            speed of 60 knots produced by Wally Yachts",
+            'type' => 'motorboat',
+            'mode' => 'sea',
+            'price' => 30000000,
+            'thumbnail' => '/images/vehicles/wallypower.jpg',
+            'img_urls' => 'wallypower'
+         ]);
+          DB::table('vehicles')->insert([
+          'model' => 'Pershing 82',
+          'make' => 'Pershing',
+          'description' => "The Missile disguised as a yacht",
+          'type' => 'motorboat',
+          'mode' => 'sea',
+          'price' => 3200000,
+          'thumbnail' => '/images/vehicles/pershing.jpg',
+          'img_urls' => 'pershing'
+          ]);
+
+           DB::table('vehicles')->insert([
+           'model' => 'Cosmic Starship',
+           'make' => 'Harley Davidson',
+           'description' => "The Cosmic Starship is a Harley Davidson V Rod. The Cosmic Starship was unveiled at Bartels
+           in Marina Del Rey, California on October 21, 2010 at a red carpet event",
+           'type' => 'motorbike',
+           'mode' => 'land',
+           'price' => 1500000,
+           'thumbnail' => '/images/vehicles/starship.jpg',
+           'img_urls' => 'cosmicstarship'
+           ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
+
+
 }

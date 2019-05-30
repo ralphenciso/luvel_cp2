@@ -6,6 +6,34 @@ body, * {
     max-width: 15%;
     background: #00000090;
     z-index: 100;
+    overflow: auto;
+    max-height: calc(100vh - 80px);
+}
+
+.filters *{
+    font-size: 1.1rem !important;
+}
+.filters::-webkit-scrollbar{
+			width: 5px;
+        }
+
+
+
+
+.filters::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.filters::-webkit-scrollbar-thumb{
+    background: snow;
+    border-radius: 2px;
+}
+
+
+
+
+.filters > div{
+    flex: 1 1 auto;
 }
 
 .reqfilter {
