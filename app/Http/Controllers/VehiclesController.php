@@ -72,7 +72,7 @@ class VehiclesController extends Controller
             'model' => 'required',
             'type' => 'required',
             'mode' => 'required',
-            'price' => 'required',
+            'price' => 'required|gte:0',
             'description',
         ]);
 
@@ -161,7 +161,7 @@ class VehiclesController extends Controller
             'model' => 'required',
             'type' => 'required',
             'mode' => 'required',
-            'price' => 'required',
+            'price' => 'required|gte:0',
             'description',
         ]);
 
