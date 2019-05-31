@@ -32,8 +32,7 @@ class CreateVehiclesTable extends Migration
 
 
 
-        File::copyDirectory(public_path('storage/gallery'), public_path('images/gallery'));
-        File::copyDirectory(public_path('storage/vehicles'), public_path('images/vehicles'));
+
 
     }
 

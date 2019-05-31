@@ -13,6 +13,18 @@
             style="font-size: 2rem">keyboard_backspace</i></a>
 </div>
 
+<div class="position-fixed errors">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul class="list-unstyled mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+</div>
+
 <div class="container">
     <div class="row">
         <div class="col-10 offset-1">
@@ -25,7 +37,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="make" >Make</label>
                         </div>
-                        <input id="make" name="make" type="text" class="form-control" required value="required">
+                        <input id="make" name="make" type="text" class="form-control" value="required" required>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">

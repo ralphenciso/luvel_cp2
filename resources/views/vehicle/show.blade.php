@@ -21,7 +21,7 @@
                     <div class="row no-gutters">
                         @foreach($gallery as $index => $image)
                         <div class="col-6 col-md-4 p-2"   data-target="#carouselgallery" data-slide-to="{{$index}}">
-                            <img class="card-img h-100" style="object-fit: cover; object-position:center;" src="/images/gallery/{{$image}}" data-toggle="modal" data-target="#galModal">
+                            <img class="card-img h-100" style="object-fit: cover; object-position:center; cursor:pointer" src="/images/gallery/{{$image}}" data-toggle="modal" data-target="#galModal">
                         </div>
                         @endforeach()
                     </div>

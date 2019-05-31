@@ -57,6 +57,7 @@
 
             <div class="col-10 col-md-9">
 
+
                 @if (auth()->user() && auth()->user()->isAdmin)
                     <form id="newvehicle-form" action="/vehicles/create" method="GET" class="row p-2">
                         <button class="btn btn-lg btn-dark text-light btn-block" href="/vehicles/create" onclick="event.preventDefault(); document.getElementById('newvehicle-form').submit();">
@@ -64,6 +65,13 @@
                         </button>
                     </form>
                 @endif
+                @if (session('durationerror') || session('costerror'))
+                    <div class="alert alert-danger">
+                        {{ session('durationerror') }}
+                        {{ session('costerror') }}
+                    </div>
+                @endif
+
 
 
                 <ul class="row list-unstyled itemslist">

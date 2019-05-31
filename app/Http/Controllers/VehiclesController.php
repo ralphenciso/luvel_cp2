@@ -6,7 +6,6 @@ use App\Vehicle;
 use Illuminate\Http\Request;
 use File;
 use Illuminate\Support\Facades\Storage;
-// use
 
 class VehiclesController extends Controller
 {
@@ -67,24 +66,26 @@ class VehiclesController extends Controller
 
 
 
-        $new =  request([
-            'make',
-            'model',
-            'type',
-            'mode',
-            'price',
+
+        $new =  $request->validate([
+            'make' => 'required',
+            'model' => 'required',
+            'type' => 'required',
+            'mode' => 'required',
+            'price' => 'required',
             'description',
         ]);
+
 
         $new['mode'] = strtolower($new['mode']);
         $new['type'] = strtolower($new['type']);
 
        if(request()->hasfile('thumbnail')){
-        $file = request()->file('thumbnail');
-        $fname = request()->file('thumbnail')->getClientOriginalName();
-        $thumbnail = '/images/vehicles/' . $fname;
-        $file->move('images/vehicles', $fname);
-        $new['thumbnail'] = $thumbnail;
+            $file = request()->file('thumbnail');
+            $fname = request()->file('thumbnail')->getClientOriginalName();
+            $thumbnail = '/images/vehicles/' . $fname;
+            $file->move('images/vehicles', $fname);
+            $new['thumbnail'] = $thumbnail;
        }
 
        if(request()->hasfile('imgs')){
@@ -155,13 +156,13 @@ class VehiclesController extends Controller
 
 
 
-        $update = request([
-            'make',
-            'model',
-            'type',
-            'mode',
-            'price',
-            'description'
+        $update = $request->validate([
+            'make' => 'required',
+            'model' => 'required',
+            'type' => 'required',
+            'mode' => 'required',
+            'price' => 'required',
+            'description',
         ]);
 
         $update['mode'] = strtolower($update['mode']);

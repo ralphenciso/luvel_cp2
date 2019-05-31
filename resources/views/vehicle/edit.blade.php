@@ -12,6 +12,17 @@
     <a class="btn btn-light d-flex align-items-center p-1" href="/vehicles/{{$vehicle->id}}"><i class="material-icons"
             style="font-size: 2rem">keyboard_backspace</i></a>
 </div>
+<div class="position-fixed errors">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="list-unstyled mb-0 m-1">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
 
 <div class="container">
     <div class="row">
@@ -44,9 +55,9 @@
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <label class="input-group-text" for="price" min="0">Price</label>
+                        <label class="input-group-text" for="price" >Price</label>
                     </div>
-                    <input id="price" name="price" type="number" class="form-control" value="{{$vehicle->price}}" required>
+                    <input id="price" name="price" type="number" class="form-control" value="{{$vehicle->price}}" required min="0">
                     <div class="input-group-append">
                         <span class="input-group-text">$</span>
                     </div>
@@ -67,7 +78,7 @@
                         <label for="description" class="input-group-text">Description</label>
                     </div>
                     <textarea name="description" name="description" class="form-control"
-                        aria-label="With textarea" >{{$vehicle->description}}</textarea>
+                        aria-label="With textarea" required>{{$vehicle->description}}</textarea>
                 </div>
 
                 <div class="input-group mb-3">
