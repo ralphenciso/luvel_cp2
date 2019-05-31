@@ -23,8 +23,8 @@ class CreateLeaseRequestsTable extends Migration
             $table->string('duration'); //object string
             $table->decimal('cost',10,2);
             $table->string('status')->nullable()->default('for approval');
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('set null');
-            $table->foreign('vehicle_id')->references('id')->on('vehicles')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('vehicle_id')->references('id')->on('vehicles')->onDelete('cascade');
         });
     }
 

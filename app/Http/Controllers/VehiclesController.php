@@ -6,6 +6,7 @@ use App\Vehicle;
 use Illuminate\Http\Request;
 use File;
 use Illuminate\Support\Facades\Storage;
+// use
 
 class VehiclesController extends Controller
 {
@@ -20,6 +21,13 @@ class VehiclesController extends Controller
      */
     public function index()
     {
+
+
+
+
+
+
+
         $vehicles = Vehicle::all();
         $modes = array();
         $types = array();
@@ -209,7 +217,7 @@ class VehiclesController extends Controller
     {
         abort_unless(auth()->user()->isAdmin, 404);
 
-        if(isset($vehicle->thumbnail) && $vehicle->thumbnail !== '' ){
+        if($vehicle->thumbnail !== '/images/noimage.svg' ){
             File::delete(public_path().str_replace('\\','/',$vehicle->thumbnail));
         }
 

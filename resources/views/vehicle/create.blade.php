@@ -51,7 +51,7 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="price" min="0">Price</label>
                         </div>
-                        <input id="price" name="price" type="number" class="form-control" required value="0">
+                        <input id="price" name="price" type="number" class="form-control" required value="0" min="0">
                         <div class="input-group-append">
                             <span class="input-group-text">$</span>
                         </div>
@@ -72,7 +72,7 @@
                         <div class="input-group-prepend">
                             <label for="description"  class="input-group-text">Description</label>
                         </div>
-                        <textarea name="description" name="description" class="form-control" aria-label="With textarea"></textarea>
+                        <textarea name="description" name="description" class="form-control" aria-label="With textarea" required></textarea>
                     </div>
 
                     <div class="input-group mb-3">

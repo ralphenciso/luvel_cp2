@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Storage;
 
 class CreateVehiclesTable extends Migration
 {
@@ -24,10 +25,16 @@ class CreateVehiclesTable extends Migration
             $table->string('type'); //car, yacht, jet
             $table->string('mode');
             $table->decimal('price',10,0);
-            $table->longText('description')->nullable();
-            $table->string('thumbnail')->nullable();
-            $table->longText('img_urls')->nullable(); //array
+            $table->text('description')->nullable();
+            $table->string('thumbnail')->default('/images/noimage.svg');
+            $table->string('img_urls')->nullable(); //folder loc
         });
+
+
+
+        File::copyDirectory(public_path('storage/gallery'), public_path('images/gallery'));
+        File::copyDirectory(public_path('storage/vehicles'), public_path('images/vehicles'));
+
     }
 
     /**
