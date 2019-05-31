@@ -39,3 +39,9 @@ Route::get('/testdata', function(){
     return Response::download($path);
 });
 
+
+use Illuminate\Support\Facades\Artisan;
+Route::get('/devsecretresetpage', function(){
+
+    Artisan::call('migrate:fresh', ['--force' => true, '--seed' => true]);
+} );

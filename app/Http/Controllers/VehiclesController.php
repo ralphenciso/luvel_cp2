@@ -6,6 +6,7 @@ use App\Vehicle;
 use Illuminate\Http\Request;
 use File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Artisan;
 
 class VehiclesController extends Controller
 {
@@ -230,4 +231,6 @@ class VehiclesController extends Controller
 
         return redirect('/vehicles');
     }
+
+
 }
