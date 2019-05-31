@@ -3,7 +3,7 @@
 
 @section('title', 'new vehicle')
 @section('css')
-    <link rel="stylesheet" href="/css/create.css">
+<link rel="stylesheet" href="/css/create.css">
 @endsection
 
 @section('content')
@@ -18,32 +18,40 @@
         <div class="col-10 offset-1">
                 <h2 class="card text-center bg-dark text-light">Add New Vehicle</h2>
 
-                 <form action="/vehicles" method="POST" enctype="multipart/form-data">
+                 <form action="/vehicles" method="POST" enctype="multipart/form-data" id="newvehicleform">
                     @csrf
 
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="make">Make</label>
+                            <label class="input-group-text" for="make" >Make</label>
                         </div>
-                        <input id="make" name="make" type="text" class="form-control">
+                        <input id="make" name="make" type="text" class="form-control" required value="required">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="model">Model</label>
                         </div>
-                        <input id="model" name="model" type="text" class="form-control">
+                        <input id="model" name="model" type="text" class="form-control" required value="required">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="type">Type</label>
                         </div>
-                        <input id="type" name="type" type="text" class="form-control">
+                        <select id="type" name="type" class="form-control" required value="required" form="newvehicleform">
+                            @foreach ($types as $type)
+                                <option value="{{$type->type}}">{{ucfirst($type->type)}}</option>
+                            @endforeach
+                        </select>
+                        <input type="text" id="newtypevalue">
+                        <div class="input-group-append">
+                            <button type="button" class="input-group-text" id="newtype">Add New Type</button>
+                        </div>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="price" min="0">Price</label>
                         </div>
-                        <input id="price" name="price" type="number" class="form-control">
+                        <input id="price" name="price" type="number" class="form-control" required value="0">
                         <div class="input-group-append">
                             <span class="input-group-text">$</span>
                         </div>
@@ -52,7 +60,12 @@
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="mode">Mode</label>
                         </div>
-                        <input id="mode" name="mode" type="text" class="form-control">
+                        <select id="mode" name="mode" class="form-control" required form="newvehicleform">
+                            <option value="air">Air</option>
+                            <option value="land">Land</option>
+                            <option value="sea">Sea</option>
+                        </select>
+
                     </div>
 
                     <div class="input-group mb-3 textarea">
@@ -98,6 +111,8 @@
         let drop = document.querySelector('#dropzone');
         let fileinput = document.querySelector('#gallery');
         let filelist = document.querySelector('#uploadlist');
+        let newtype = document.querySelector('#newtype');
+        let types = document.querySelector('#type');
 
         drop.addEventListener("drop", function(e){
             this.classList.remove('dragover');
@@ -150,6 +165,28 @@
             for (b = (new ClipboardEvent("")).clipboardData || new DataTransfer; c--;) b.items.add(a[c])
             return b.files
         }
+
+        newtype.addEventListener('click', function(e){
+            let newtype = document.querySelector('#newtypevalue');
+            let newtypevalue = newtype.value;
+
+            if(newtypevalue !== ''){
+                let option = document.createElement('option');
+                let options = types.querySelectorAll('option');
+
+                let optionvalues = Array.from(options).map(el => el.value);
+
+                if(optionvalues.includes(newtypevalue)){
+                    return;
+                } else {
+                    option.value = newtypevalue;
+                    option.innerHTML = newtypevalue;
+                    types.appendChild(option);
+                    newtype.value = '';
+                }
+            }
+
+        })
 
 
 

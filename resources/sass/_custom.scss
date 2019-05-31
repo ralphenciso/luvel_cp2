@@ -270,6 +270,10 @@ body, * {
     color:snow
 }
 
+#newtype{
+    box-sizing: content-box;
+}
+
 .requestlist .card-img{
     width: auto;
     height: 185px;

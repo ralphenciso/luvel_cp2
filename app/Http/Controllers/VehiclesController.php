@@ -27,7 +27,6 @@ class VehiclesController extends Controller
         foreach($vehicles  as $vehicle){
             array_push($modes, $vehicle->mode);
             array_push($types, $vehicle->type);
-
         }
         $modes = array_unique($modes);
         $types = array_unique($types);
@@ -44,7 +43,9 @@ class VehiclesController extends Controller
     public function create()
     {
         abort_unless(auth()->user()->isAdmin, 404);
-        return view('vehicle.create');
+        $types = Vehicle::select('type')->distinct()->get();
+
+        return view('vehicle.create', compact('types'));
     }
 
     /**

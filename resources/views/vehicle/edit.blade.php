@@ -18,7 +18,7 @@
         <div class="col-10 offset-1">
             <h2 class="card text-center bg-dark text-light">{{$vehicle->make . " " . $vehicle->model}}</h2>
 
-            <form action="/vehicles/{{$vehicle->id}}" method="POST" enctype="multipart/form-data">
+            <form action="/vehicles/{{$vehicle->id}}" method="POST" enctype="multipart/form-data" id="newvehicleform">
                 @csrf
                 @method('PATCH')
 
@@ -26,25 +26,27 @@
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="make" >Make</label>
                     </div>
-                    <input id="make" name="make" type="text" class="form-control" value="{{$vehicle->make}}">
+                    <input id="make" name="make" type="text" class="form-control" value="{{$vehicle->make}}" required>
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="model">Model</label>
                     </div>
-                    <input id="model" name="model" type="text" class="form-control" value="{{$vehicle->model}}">
+                    <input id="model" name="model" type="text" class="form-control" value="{{$vehicle->model}}" required >
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="type">Type</label>
                     </div>
-                    <input id="type" name="type" type="text" class="form-control" value="{{ucfirst($vehicle->type)}}">
+                    <input id="type" name="type" type="text" class="form-control" value="{{ucfirst($vehicle->type)}}" required >
+
+
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="price" min="0">Price</label>
                     </div>
-                    <input id="price" name="price" type="number" class="form-control" value="{{$vehicle->price}}">
+                    <input id="price" name="price" type="number" class="form-control" value="{{$vehicle->price}}" required>
                     <div class="input-group-append">
                         <span class="input-group-text">$</span>
                     </div>
@@ -53,7 +55,11 @@
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="mode">Mode</label>
                     </div>
-                    <input id="mode" name="mode" type="text" class="form-control" value="{{ucfirst($vehicle->mode)}}">
+                    <select id="mode" name="mode" class="form-control" required form="newvehicleform" ">
+                        <option value="air" {{$vehicle->mode === 'air' ? 'selected="selected"' : ''}} >Air</option>
+                        <option value="land" {{$vehicle->mode === 'land' ? 'selected="selected"' : ''}} >Land</option>
+                        <option value="sea" {{$vehicle->mode === 'sea' ? 'selected="selected"' : ''}} >Sea</option>
+                    </select>
                 </div>
 
                 <div class="input-group mb-3 textarea">
